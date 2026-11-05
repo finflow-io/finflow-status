@@ -1,0 +1,24 @@
+# Eigener Ablauf von finflow, nicht Teil der Upptime-Vorlage.
+# Verschickt bei Störungen, Behebungen und geplanten Wartungen eine E-Mail an alle
+# bestätigten Abonnenten der Statusseite (scripts/notify-subscribers.mjs).
+name: Status-Benachrichtigungen
+on:
+  issues:
+    types: [opened, closed]
+permissions:
+  contents: read
+concurrency:
+  group: notify-${{ github.event.issue.number }}-${{ github.event.action }}
+  cancel-in-progress: false
+jobs:
+  notify:
+    if: contains(github.event.issue.labels.*.name, 'status') || contains(github.event.issue.labels.*.name, 'maintenance')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/notify-subscribers.mjs
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}

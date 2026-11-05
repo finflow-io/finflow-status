@@ -1,0 +1,18 @@
+# finflow Status
+
+> Öffentliche Statusseite von finflow (https://finflow.io), der Software für ungebundene Kreditvermittler. Sie zeigt, ob Webseite, App und API-Dokumentation erreichbar sind, und listet Störungen und geplante Wartungen.
+
+- Geprüft wird alle 5 Minuten: Erreichbarkeit und Antwortzeit.
+- Überwachte Dienste: Webseite (https://finflow.io), App-Anmeldung (https://app.finflow.io/login), App-Registrierung (https://app.finflow.io/register), App-Dienste (https://app.finflow.io/api/health), API (https://app.finflow.io/api/health/api), E-Mail-Versand (https://app.finflow.io/api/health/mail), Hintergrund-Aufgaben (https://app.finflow.io/api/health/queue), API-Dokumentation (https://developers.finflow.io).
+- Störungen und Wartungen werden auf dieser Seite auf Deutsch veröffentlicht.
+
+## Daten
+
+- [Aktueller Status als JSON](https://raw.githubusercontent.com/finflow-io/finflow-status/master/history/summary.json): Status, Verfügbarkeit und Antwortzeit je Dienst
+- [Störungen und Wartungen](https://github.com/finflow-io/finflow-status/issues): jede Störung und jede geplante Wartung als eigener Eintrag
+
+## Links
+
+- [Statusseite](https://status.finflow.io/)
+- [finflow](https://finflow.io)
+- [API-Dokumentation](https://developers.finflow.io)
