@@ -42,6 +42,11 @@ sites:
   - name: API-Dokumentation
     icon: https://status.finflow.io/finflow-icon.svg
     url: https://developers.finflow.io
+    # Since 2026-11-05 the server answers requests from GitHub's runners with 401 (works from elsewhere).
+    # Until that is fixed on the server, 401 counts as reachable; no answer or 5xx still counts as down.
+    expectedStatusCodes:
+      - 200
+      - 401
   # Not live yet; enable once the waiting page exists.
   # - name: Community
   #   icon: https://status.finflow.io/finflow-icon.svg
